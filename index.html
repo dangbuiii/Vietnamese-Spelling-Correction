@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spelling Correction</title>
+</head>
+<body>
+    <p align="center">
+        VIETNAMESE SPELLING CORRECTION
+    </p>
+    <div class="main_content">
+        <div>
+            <table align="center" style="width:30%">
+                <colgroup>
+                    <col width="50%">
+                    <col width="50%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form action="/action1" method="post" id="form1">
+                                <button type="submit">Correct confused accent mistakes</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/action2" method="post" id="form2">
+                                <button type="submit">Insert Vietnamese accent marks</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <form action="/action3" method="post" id="form3">
+                                    <button type="submit">Correct typing errors</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/action4" method="post" id="form4">
+                                    <button type="submit">Correct accent and typing erros</button>
+                                </form>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <table align="center" style="width:60%">
+                <colgroup>
+                    <col width="48%">
+                    <col width="4%">
+                    <col width="48%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style="float:left">Input here</div>
+                        </td>
+                        <td></td>
+                        <td>
+                            <div style="float:left">Result</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea name="text" id="keyword" style="height:400px; width:100%">
+                            </textarea>
+                        </td>
+                        <td align="top"></td>
+                        <td valign="top" style ="border:1px solid black;height:400px">
+                            <div id="result"></div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    $("#form1").submit(function(event){
+        $.ajax({
+            url: '/action1',
+            data: {keyword : $('#keyword').val()},
+            type: 'POST',
+            dataType: "text",
+            success: function(response){
+                $('#result').html(response);
+            },
+            error: function (error) {
+                alert(error.data);
+            }
+        });
+        event.preventDefault();
+    });
+    $("#form2").submit(function(event){
+        $.ajax({
+            url: '/action2',
+            data: {keyword : $('#keyword').val()},
+            type: 'POST',
+            dataType: "text",
+            success: function(response){
+                $('#result').html(response);
+            },
+            error: function (error) {
+                alert(error.data);
+            }
+        });
+        event.preventDefault();
+    });
+    $("#form3").submit(function(event){
+        $.ajax({
+            url: '/action3',
+            data: {keyword : $('#keyword').val()},
+            type: 'POST',
+            dataType: "text",
+            success: function(response){
+                $('#result').html(response);
+            },
+            error: function (error) {
+                alert(error.data);
+            }
+        });
+        event.preventDefault();
+    });
+    $("#form4").submit(function(event){
+        $.ajax({
+            url: '/action4',
+            data: {keyword : $('#keyword').val()},
+            type: 'POST',
+            dataType: "text",
+            success: function(response){
+                $('#result').html(response);
+            },
+            error: function (error) {
+                alert(error.data);
+            }
+        });
+        event.preventDefault();
+    });
+    $("#result").text(responseFromAjax);
+
+
+</script>
+
+</html>
