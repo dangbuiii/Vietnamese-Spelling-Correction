@@ -5,6 +5,10 @@ Vietnamese Spelling Correction (Sửa lỗi chính tả Tiếng Việt) ứng d�
 ### 2. Ứng dụng
 - Python
 - HTML
+### 3. Yêu cầu
+- Tensorflow : 2.0.0
+- Keras: 2.3.1
+
 
 
 
